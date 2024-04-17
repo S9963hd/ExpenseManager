@@ -22,7 +22,7 @@ app.get('/get',async(req,res)=>{
     let result=""
     await authModel.find({"name":query.name}).then(res=>result=res).catch(err=>console.log(err));
     console.log(result+"<><><?");
-    res.send(JSON.stringify(result));
+    res.json(JSON.stringify(result));
     res.end();
 })
 app.put('/put',async (req,res)=>{
