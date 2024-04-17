@@ -33,6 +33,6 @@ app.put('/put',async (req,res)=>{
 })
 app.get('/',(req,res)=>{
     let message={"message":"Main Page"}
-    res.sendFile(JSON.stringify(message));
+    res.json(message);
     res.end();
 })
