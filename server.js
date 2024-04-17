@@ -5,6 +5,7 @@ let {authModel,expenseModel}=require('./Schemas.js');
 app.use(express.json());
 mongoose.connect('mongodb+srv://717821f146:717821f146@sample.6xezwuk.mongodb.net/ExpenseTracker?retryWrites=true&w=majority&appName=Sample').then(()=>{
     console.log("server Connected");
+    let PORT=process.env.PORT || 3000;
     app.listen(3000,()=>{
         console.log("Server Instanciated");
     })
