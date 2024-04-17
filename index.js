@@ -1,8 +1,10 @@
 let express=require('express');
 let mongoose=require('mongoose');
+let cors=require('cors');
 let app=express();
 let {authModel,expenseModel}=require('./Schemas.js');
 app.use(express.json());
+app.use(cors());
 mongoose.connect('mongodb+srv://717821f146:717821f146@sample.6xezwuk.mongodb.net/ExpenseTracker?retryWrites=true&w=majority&appName=Sample').then(()=>{
     console.log("server Connected");
     let PORT=process.env.PORT || 3000;
