@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://717821f146:717821f146@sample.6xezwuk.mongodb.net
 })
 app.post('/post',async(req,res)=>{
     let data=req.query;
-    await authModel.create(data).then(()=>res.sendStatus(200).send(req.data)).catch(err=>res.sendStatus(401));
+    await authModel.create(data).then(()=>res.sendStatus(200).json(req.data)).catch(err=>res.sendStatus(401));
     res.end();
 })
 app.get('/get',async(req,res)=>{
@@ -22,7 +22,7 @@ app.get('/get',async(req,res)=>{
     let result=""
     await authModel.find({"name":query.name}).then(res=>result=res).catch(err=>console.log(err));
     console.log(result+"<><><?");
-    res.json(JSON.stringify(result));
+    res.json(result);
     res.end();
 })
 app.put('/put',async (req,res)=>{
