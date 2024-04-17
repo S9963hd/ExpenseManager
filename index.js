@@ -29,3 +29,7 @@ app.put('/put',async (req,res)=>{
    await authModel.updateOne({"name":data.name},{email:data.email}).then((data)=>res.sendStatus(200)).catch(err=>res.sendStatus(401));
     res.end();
 })
+app.get('/',(req,res)=>{
+    let message={"message":"Main Page"}
+    res.send(JSON.stringify(message));
+})
